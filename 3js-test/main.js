@@ -95,9 +95,9 @@ function animate() {
 
 function exploreAnimation() {
   gsap.gsap.to(camera.position, {
-    x: 10,
-    y: 10,
-    z: 10,
+    x: 0,
+    y: 0,
+    z: 15,
     duration: 10,
     ease: "power3.inOut",
   }, "-=2");
