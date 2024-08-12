@@ -94,11 +94,18 @@ function animate() {
 
 
 function exploreAnimation() {
+  gsap.gsap.to(controls.target, {
+    x: moon.position.x,
+    y: moon.position.y,
+    z: moon.position.z,
+    duration: 2,
+    ease: "power3.inOut",
+  })
   gsap.gsap.to(camera.position, {
     x: 0,
     y: 0,
-    z: 15,
-    duration: 10,
+    z: 30,
+    duration: 5,
     ease: "power3.inOut",
   }, "-=2");
 }
