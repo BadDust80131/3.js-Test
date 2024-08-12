@@ -3,6 +3,7 @@ import './style.css'
 import * as THREE from 'three';
 
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
+import * as gsap from "gsap";
 
 const scene = new THREE.Scene();
 
@@ -91,4 +92,16 @@ function animate() {
   renderer.render(scene,camera);
 }
 
+
+function exploreAnimation() {
+  gsap.gsap.to(camera.position, {
+    x: 10,
+    y: 10,
+    z: 10,
+    duration: 10,
+    ease: "power3.inOut",
+  }, "-=2");
+}
+
 animate()
+exploreAnimation()
