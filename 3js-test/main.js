@@ -65,19 +65,18 @@ scene.add(moon);
 
 // Creats a PBR brick sphere then adds to scene
 const brickTexture = new THREE.TextureLoader().load("public/brick/bcolor.jpg");
-const brickAOTexture = new THREE.TextureLoader().load("public/brick/bcolor.jpg");
-const brickNormalTexture = new THREE.TextureLoader().load("public/brick/bcolor.jpg");
-const brickDispTexture = new THREE.TextureLoader().load("public/brick/bcolor.jpg");
-const brickRoughTexture = new THREE.TextureLoader().load("public/brick/bcolor.jpg");
+const brickAOTexture = new THREE.TextureLoader().load("public/brick/bao.jpg");
+const brickNormalTexture = new THREE.TextureLoader().load("public/brick/bnorm.jpg");
+const brickDispTexture = new THREE.TextureLoader().load("public/brick/bdisp.jpg");
+const brickRoughTexture = new THREE.TextureLoader().load("public/brick/brough.jpg");
 const brick = new THREE.Mesh(
-  new THREE.SphereGeometry(3,256,256),
+  new THREE.BoxGeometry(5,5,5,64,64,64),
   new THREE.MeshStandardMaterial({
     map: brickTexture,
     normalMap: brickNormalTexture,
     aoMap: brickAOTexture,
-    aoMapIntensity: 0.5,
     displacementMap: brickDispTexture,
-    displacementScale: 0.25,
+    displacementScale: 0.1,
     roughnessMap: brickRoughTexture,
   })
 );
