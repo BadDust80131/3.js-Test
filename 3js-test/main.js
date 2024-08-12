@@ -27,7 +27,7 @@ const torus = new THREE.Mesh(geometry,material);
 scene.add(torus);
 
 const worldLight = new THREE.AmbientLight(0xffffff);
-const pointLight = new THREE.PointLight(0xffffff, 5000, 100);
+const pointLight = new THREE.PointLight(0xffffff, 10000, 100);
 pointLight.position.set(20,20,20);
 
 scene.add(pointLight)
@@ -51,6 +51,17 @@ function addStar() {
 Array(200).fill().forEach(addStar)
 
 
+
+const loader = new THREE.CubeTextureLoader();
+const texture = loader.load([
+  "public/xpos.png",
+  "public/xneg.png",
+  "public/ypos.png",
+  "public/yneg.png",
+  "public/zpos.png",
+  "public/zneg.png",
+]);
+scene.background = texture;
 
 function animate() {
   requestAnimationFrame(animate);
