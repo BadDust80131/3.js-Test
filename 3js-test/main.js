@@ -27,7 +27,10 @@ scene.add(torus);
 const worldLight = new THREE.AmbientLight(0xffffff);
 const pointLight = new THREE.PointLight(0xffffff, 10000, 100);
 pointLight.position.set(20,20,20);
+const pointLight2 = new THREE.PointLight(0xffffff, 500, 100);
+pointLight2.position.set(-15,10,-15);
 scene.add(pointLight)
+scene.add(pointLight2)
 scene.add(worldLight)
 
 // Object needed for orbital controls
@@ -59,6 +62,27 @@ const moon = new THREE.Mesh(
   })
 );
 scene.add(moon);
+
+// Creats a PBR brick sphere then adds to scene
+const brickTexture = new THREE.TextureLoader().load("public/brick/bcolor.jpg");
+const brickAOTexture = new THREE.TextureLoader().load("public/brick/bcolor.jpg");
+const brickNormalTexture = new THREE.TextureLoader().load("public/brick/bcolor.jpg");
+const brickDispTexture = new THREE.TextureLoader().load("public/brick/bcolor.jpg");
+const brickRoughTexture = new THREE.TextureLoader().load("public/brick/bcolor.jpg");
+const brick = new THREE.Mesh(
+  new THREE.SphereGeometry(3,256,256),
+  new THREE.MeshStandardMaterial({
+    map: brickTexture,
+    normalMap: brickNormalTexture,
+    aoMap: brickAOTexture,
+    aoMapIntensity: 0.5,
+    displacementMap: brickDispTexture,
+    displacementScale: 0.25,
+    roughnessMap: brickRoughTexture,
+  })
+);
+brick.position.set(-20,0,-20);
+scene.add(brick)
 
 // Function used to create a star that is randomly placed. Called at the start of the script. 
 function addStar() {
