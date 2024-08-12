@@ -103,5 +103,13 @@ function exploreAnimation() {
   }, "-=2");
 }
 
+addEventListener("keydown", onkeydown);
+
+function onkeydown(event){
+  if(event.key === "e" || event.key === "E") {
+    console.log("e")
+    exploreAnimation()
+  }
+}
+
 animate()
-exploreAnimation()
